@@ -1,0 +1,2 @@
+verilog work "mips_16.v"
+verilog work "tb_mips16.v"

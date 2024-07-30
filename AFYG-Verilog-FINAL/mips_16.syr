@@ -1,0 +1,837 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Reading design: mips_16.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mips_16.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mips_16"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : mips_16
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "mips_16.v" in library work
+Compiling verilog include file "alu.v"
+Compiling verilog include file "control.v"
+Module <alu> compiled
+Compiling verilog include file "instr_mem.v"
+Module <control> compiled
+Compiling verilog include file "register_file.v"
+Module <instr_mem> compiled
+Compiling verilog include file "ALUControl.v"
+Module <register_file> compiled
+Module <ALUControl> compiled
+Compiling verilog include file "data_memory.v"
+Module <JR_Control> compiled
+Module <data_memory> compiled
+Module <mips_16> compiled
+No errors in compilation
+Analysis of file <"mips_16.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <mips_16> in library <work>.
+
+Analyzing hierarchy for module <instr_mem> in library <work>.
+
+Analyzing hierarchy for module <control> in library <work>.
+
+Analyzing hierarchy for module <register_file> in library <work>.
+
+Analyzing hierarchy for module <JR_Control> in library <work>.
+
+Analyzing hierarchy for module <ALUControl> in library <work>.
+
+Analyzing hierarchy for module <alu> in library <work>.
+
+Analyzing hierarchy for module <data_memory> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <mips_16>.
+Module <mips_16> is correct for synthesis.
+ 
+Analyzing module <instr_mem> in library <work>.
+Module <instr_mem> is correct for synthesis.
+ 
+Analyzing module <control> in library <work>.
+WARNING:Xst:883 - "control.v" line 157: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "control.v" line 169: Ignored duplicate item in case statement. 
+Module <control> is correct for synthesis.
+ 
+Analyzing module <register_file> in library <work>.
+Module <register_file> is correct for synthesis.
+ 
+Analyzing module <JR_Control> in library <work>.
+Module <JR_Control> is correct for synthesis.
+ 
+Analyzing module <ALUControl> in library <work>.
+Module <ALUControl> is correct for synthesis.
+ 
+Analyzing module <alu> in library <work>.
+Module <alu> is correct for synthesis.
+ 
+Analyzing module <data_memory> in library <work>.
+Module <data_memory> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <i> in unit <alu> has a constant value of 1000 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <instr_mem>.
+    Related source file is "instr_mem.v".
+WARNING:Xst:1781 - Signal <rom> is used but never assigned. Tied to default value.
+    Found 256x16-bit ROM for signal <$COND_1>.
+    Found 16-bit comparator less for signal <instruction$cmp_lt0000> created at line 44.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Comparator(s).
+Unit <instr_mem> synthesized.
+
+
+Synthesizing Unit <control>.
+    Related source file is "control.v".
+Unit <control> synthesized.
+
+
+Synthesizing Unit <register_file>.
+    Related source file is "register_file.v".
+    Found 16-bit 8-to-1 multiplexer for signal <$varindex0000> created at line 39.
+    Found 16-bit 8-to-1 multiplexer for signal <$varindex0001> created at line 40.
+    Found 128-bit register for signal <reg_array>.
+    Summary:
+	inferred 128 D-type flip-flop(s).
+	inferred  32 Multiplexer(s).
+Unit <register_file> synthesized.
+
+
+Synthesizing Unit <JR_Control>.
+    Related source file is "ALUControl.v".
+Unit <JR_Control> synthesized.
+
+
+Synthesizing Unit <ALUControl>.
+    Related source file is "ALUControl.v".
+Unit <ALUControl> synthesized.
+
+
+Synthesizing Unit <alu>.
+    Related source file is "alu.v".
+WARNING:Xst:646 - Signal <product_upper> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <product_lower> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <product> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplier_temp> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplier_sign> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplier> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplicand_temp> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplicand_sign> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <multiplicand> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 16-bit adder for signal <old_multiplicand_temp_3$addsub0000> created at line 40.
+    Found 16-bit adder for signal <old_multiplier_temp_2$addsub0000> created at line 35.
+    Found 16-bit adder for signal <old_product_28$addsub0000> created at line 67.
+    Found 1-bit xor2 for signal <old_product_28$xor0000> created at line 65.
+    Found 16-bit addsub for signal <result$addsub0000>.
+    Found 16-bit comparator less for signal <result$cmp_lt0000> created at line 22.
+    Found 16-bit shifter logical left for signal <result$shift0002> created at line 25.
+    Found 16-bit shifter logical right for signal <result$shift0003> created at line 26.
+    Found 16-bit xor2 for signal <result$xor0000> created at line 21.
+    Summary:
+	inferred  11 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+
+Synthesizing Unit <data_memory>.
+    Related source file is "data_memory.v".
+WARNING:Xst:647 - Input <mem_access_addr<15:9>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mem_access_addr<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 256x16-bit single-port RAM <Mram_ram> for signal <ram>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <data_memory> synthesized.
+
+
+Synthesizing Unit <mips_16>.
+    Related source file is "mips_16.v".
+    Found 16-bit adder for signal <no_sign_ext>.
+    Found 16-bit adder for signal <pc2>.
+    Found 16-bit adder for signal <PC_beq$add0000> created at line 85.
+    Found 16-bit subtractor for signal <PC_beq$addsub0000> created at line 85.
+    Found 16-bit register for signal <pc_current>.
+    Found 16-bit 4-to-1 multiplexer for signal <reg_write_data>.
+    Found 3-bit 4-to-1 multiplexer for signal <reg_write_dest>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  19 Multiplexer(s).
+Unit <mips_16> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 256x16-bit single-port RAM                            : 1
+# ROMs                                                 : 1
+ 256x16-bit ROM                                        : 1
+# Adders/Subtractors                                   : 15
+ 16-bit adder                                          : 6
+ 16-bit addsub                                         : 1
+ 16-bit subtractor                                     : 1
+ 6-bit adder                                           : 7
+# Registers                                            : 9
+ 16-bit register                                       : 9
+# Comparators                                          : 2
+ 16-bit comparator less                                : 2
+# Multiplexers                                         : 4
+ 16-bit 4-to-1 multiplexer                             : 1
+ 16-bit 8-to-1 multiplexer                             : 2
+ 3-bit 4-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 16-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <data_memory>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_ram> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 16-bit                   |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <mem_write_en>  | high     |
+    |     addrA          | connected to signal <mem_access_addr> |          |
+    |     diA            | connected to signal <mem_write_data> |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <data_memory> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 256x16-bit single-port distributed RAM                : 1
+# ROMs                                                 : 1
+ 256x16-bit ROM                                        : 1
+# Adders/Subtractors                                   : 15
+ 16-bit adder                                          : 4
+ 16-bit addsub                                         : 1
+ 16-bit subtractor                                     : 1
+ 6-bit adder                                           : 8
+ 8-bit adder                                           : 1
+# Registers                                            : 144
+ Flip-Flops                                            : 144
+# Comparators                                          : 2
+ 16-bit comparator less                                : 2
+# Multiplexers                                         : 34
+ 1-bit 8-to-1 multiplexer                              : 32
+ 16-bit 4-to-1 multiplexer                             : 1
+ 3-bit 4-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 16-bit shifter logical left                           : 1
+ 16-bit shifter logical right                          : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 16-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <mips_16> ...
+WARNING:Xst:1710 - FF/Latch <pc_current_0> (without init value) has a constant value of 0 in block <mips_16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <pc_current_0> (without init value) has a constant value of 0 in block <mips_16>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <register_file> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <data_memory> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_10> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_10> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_10> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_10> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_4> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_4> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_4> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_4> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_5> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_5> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_5> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_5> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_6> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_6> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_6> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_6> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_7> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_7> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_7> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_7> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_11> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_11> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_11> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_11> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_8> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_8> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_8> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_8> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_9> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_9> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_9> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_9> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_12> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_12> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_12> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_12> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_13> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_13> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_13> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_13> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_14> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_14> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_14> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_14> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_15> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_15> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_15> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_15> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_1> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_1> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_1> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_1> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_2> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_2> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_2> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_2> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_3> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_3> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_3> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_3> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_4_0> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_5_0> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_6_0> is unconnected in block <mips_16>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <reg_file/reg_array_7_0> is unconnected in block <mips_16>.
+Found area constraint ratio of 100 (+ 5) on block mips_16, actual ratio is 9.
+WARNING:Xst:2677 - Node <reg_file/reg_array_3_14> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_3_3> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_3_2> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_15> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_14> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_13> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_12> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_9> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_8> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_5> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_4> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_3> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_2> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_1> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <reg_file/reg_array_0_0> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram128> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram127> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram126> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram125> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram124> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram123> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram122> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram121> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram119> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram118> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram120> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram117> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram116> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram115> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram114> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram113> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram112> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram110> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram109> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram111> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram108> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram107> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram106> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram105> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram104> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram103> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram101> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram100> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram102> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram99> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram98> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram97> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram96> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram95> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram94> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram92> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram91> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram93> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram90> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram89> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram88> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram87> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram86> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram85> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram83> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram82> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram84> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram81> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram80> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram79> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram78> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram77> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram76> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram74> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram73> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram75> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram72> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram71> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram70> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram69> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram68> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram67> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram65> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram64> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram66> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram63> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram62> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram61> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram60> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram59> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram58> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram56> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram55> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram57> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram54> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram53> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram52> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram51> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram50> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram49> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram47> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram46> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram48> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram45> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram44> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram43> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram42> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram41> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram40> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram38> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram37> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram39> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram36> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram35> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram34> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram33> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram32> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram31> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram29> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram28> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram30> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram27> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram26> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram25> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram24> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram23> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram22> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram20> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram19> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram21> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram18> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram17> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram16> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram15> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram14> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram13> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram11> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram10> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram12> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram9> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram8> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram6> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram5> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram7> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram4> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram3> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram1> of sequential type is unconnected in block <mips_16>.
+WARNING:Xst:2677 - Node <datamem/Mram_ram2> of sequential type is unconnected in block <mips_16>.
+FlipFlop pc_current_3 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 65
+ Flip-Flops                                            : 65
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mips_16.ngr
+Top Level Output File Name         : mips_16
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 34
+
+Cell Usage :
+# BELS                             : 635
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 25
+#      LUT2                        : 14
+#      LUT2_D                      : 4
+#      LUT2_L                      : 1
+#      LUT3                        : 76
+#      LUT3_D                      : 7
+#      LUT3_L                      : 11
+#      LUT4                        : 257
+#      LUT4_D                      : 49
+#      LUT4_L                      : 64
+#      MUXCY                       : 43
+#      MUXF5                       : 35
+#      VCC                         : 1
+#      XORCY                       : 46
+# FlipFlops/Latches                : 65
+#      FDC                         : 16
+#      FDCE                        : 49
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 33
+#      IBUF                        : 1
+#      OBUF                        : 32
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      263  out of   4656     5%  
+ Number of Slice Flip Flops:             65  out of   9312     0%  
+ Number of 4 input LUTs:                509  out of   9312     5%  
+ Number of IOs:                          34
+ Number of bonded IOBs:                  34  out of    232    14%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 65    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 65    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 17.126ns (Maximum Frequency: 58.391MHz)
+   Minimum input arrival time before clock: 17.434ns
+   Maximum output required time after clock: 16.056ns
+   Maximum combinational path delay: 15.977ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 17.126ns (frequency: 58.391MHz)
+  Total number of paths / destination ports: 1622623 / 114
+-------------------------------------------------------------------------
+Delay:               17.126ns (Levels of Logic = 14)
+  Source:            pc_current_10 (FF)
+  Destination:       pc_current_1 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pc_current_10 to pc_current_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.591   0.762  pc_current_10 (pc_current_10)
+     LUT4_D:I0->O          9   0.704   0.899  pc_next<11>325_1 (pc_next<11>3251)
+     LUT3:I1->O           18   0.704   1.072  pc_next<11>351_1 (pc_next<11>351)
+     LUT4_L:I3->LO         1   0.704   0.104  reg_file/reg_read_data_1<12>1_SW0 (N265)
+     LUT4:I3->O           10   0.704   0.917  reg_file/reg_read_data_1<12>1 (reg_read_data_1<12>)
+     LUT3:I2->O            1   0.704   0.000  alu_unit/Sh44_F (N784)
+     MUXF5:I0->O           3   0.321   0.566  alu_unit/Sh44 (alu_unit/Sh44)
+     LUT4_L:I2->LO         1   0.704   0.104  alu_unit/result<8>37 (alu_unit/result<8>37)
+     LUT4:I3->O            1   0.704   0.424  alu_unit/result<8>25_SW0_SW0_SW0 (N465)
+     LUT4:I3->O            3   0.704   0.706  alu_unit/result<8>69 (alu_result_8_OBUF)
+     LUT4:I0->O           17   0.704   1.055  alu_unit/zero_cmp_eq000032 (alu_unit/zero_cmp_eq000032)
+     LUT4:I3->O            1   0.704   0.000  alu_unit/zero_cmp_eq000080_SW0_SW2_G (N835)
+     MUXF5:I1->O           1   0.321   0.424  alu_unit/zero_cmp_eq000080_SW0_SW2 (N723)
+     LUT4_L:I3->LO         1   0.704   0.104  pc_next<4>14 (pc_next<4>14)
+     LUT4:I3->O            1   0.704   0.000  pc_next<4>17 (pc_next<4>)
+     FDC:D                     0.308          pc_current_4
+    ----------------------------------------
+    Total                     17.126ns (9.989ns logic, 7.137ns route)
+                                       (58.3% logic, 41.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 32935 / 114
+-------------------------------------------------------------------------
+Offset:              17.434ns (Levels of Logic = 13)
+  Source:            reset (PAD)
+  Destination:       pc_current_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to pc_current_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            80   1.218   1.452  reset_IBUF (reset_IBUF)
+     LUT4_D:I0->O          3   0.704   0.566  ALU_Control_unit/ALU_Control<0>58_SW1 (N549)
+     LUT4:I2->O           27   0.704   1.265  ALU_Control_unit/ALU_Control<0>58 (ALU_Control<0>)
+     LUT4:I3->O            6   0.704   0.844  alu_unit/result_or000223_SW1 (N417)
+     LUT4:I0->O            9   0.704   0.899  alu_unit/result<0>222_1 (alu_unit/result<0>222)
+     LUT4_L:I1->LO         1   0.704   0.104  alu_unit/result<8>37 (alu_unit/result<8>37)
+     LUT4:I3->O            1   0.704   0.424  alu_unit/result<8>25_SW0_SW0_SW0 (N465)
+     LUT4:I3->O            3   0.704   0.706  alu_unit/result<8>69 (alu_result_8_OBUF)
+     LUT4:I0->O           17   0.704   1.055  alu_unit/zero_cmp_eq000032 (alu_unit/zero_cmp_eq000032)
+     LUT4:I3->O            1   0.704   0.000  alu_unit/zero_cmp_eq000080_SW0_SW2_G (N835)
+     MUXF5:I1->O           1   0.321   0.424  alu_unit/zero_cmp_eq000080_SW0_SW2 (N723)
+     LUT4_L:I3->LO         1   0.704   0.104  pc_next<4>14 (pc_next<4>14)
+     LUT4:I3->O            1   0.704   0.000  pc_next<4>17 (pc_next<4>)
+     FDC:D                     0.308          pc_current_4
+    ----------------------------------------
+    Total                     17.434ns (9.591ns logic, 7.843ns route)
+                                       (55.0% logic, 45.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 61140 / 31
+-------------------------------------------------------------------------
+Offset:              16.056ns (Levels of Logic = 10)
+  Source:            pc_current_10 (FF)
+  Destination:       alu_result<14> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: pc_current_10 to alu_result<14>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.591   0.762  pc_current_10 (pc_current_10)
+     LUT4_D:I0->O          9   0.704   0.899  pc_next<11>325_1 (pc_next<11>3251)
+     LUT3:I1->O           18   0.704   1.072  pc_next<11>351_1 (pc_next<11>351)
+     LUT4_L:I3->LO         1   0.704   0.104  reg_file/reg_read_data_1<12>1_SW0 (N265)
+     LUT4:I3->O           10   0.704   0.886  reg_file/reg_read_data_1<12>1 (reg_read_data_1<12>)
+     LUT4:I3->O            1   0.704   0.424  alu_unit/result<14>49 (alu_unit/result<14>49)
+     LUT4:I3->O            1   0.704   0.595  alu_unit/result<14>72_SW0 (N133)
+     LUT4:I0->O            1   0.704   0.424  alu_unit/result<14>72 (alu_unit/result<14>72)
+     LUT4_L:I3->LO         1   0.704   0.104  alu_unit/result<14>94_SW0 (N675)
+     LUT4:I3->O            4   0.704   0.587  alu_unit/result<14>94 (alu_result_14_OBUF)
+     OBUF:I->O                 3.272          alu_result_14_OBUF (alu_result<14>)
+    ----------------------------------------
+    Total                     16.056ns (10.199ns logic, 5.857ns route)
+                                       (63.5% logic, 36.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1243 / 16
+-------------------------------------------------------------------------
+Delay:               15.977ns (Levels of Logic = 9)
+  Source:            reset (PAD)
+  Destination:       alu_result<4> (PAD)
+
+  Data Path: reset to alu_result<4>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            80   1.218   1.452  reset_IBUF (reset_IBUF)
+     LUT4_D:I0->O          3   0.704   0.566  ALU_Control_unit/ALU_Control<0>58_SW1 (N549)
+     LUT4:I2->O           27   0.704   1.265  ALU_Control_unit/ALU_Control<0>58 (ALU_Control<0>)
+     LUT4:I3->O            6   0.704   0.844  alu_unit/result_or000223_SW1 (N417)
+     LUT4:I0->O            9   0.704   0.995  alu_unit/result<0>222_1 (alu_unit/result<0>222)
+     LUT3:I0->O            1   0.704   0.424  alu_unit/result<4>54_SW0 (N702)
+     LUT4:I3->O            2   0.704   0.482  alu_unit/result<4>63 (alu_unit/result<4>63)
+     LUT4:I2->O            3   0.704   0.531  alu_unit/result<4>69 (alu_result_4_OBUF)
+     OBUF:I->O                 3.272          alu_result_4_OBUF (alu_result<4>)
+    ----------------------------------------
+    Total                     15.977ns (9.418ns logic, 6.559ns route)
+                                       (58.9% logic, 41.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 8.67 secs
+ 
+--> 
+
+
+Total memory usage is 549612 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  223 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

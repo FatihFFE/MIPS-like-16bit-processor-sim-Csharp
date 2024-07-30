@@ -1,0 +1,3 @@
+verilog work "mips_16.v"
+verilog work "tb_mips16.v"
+verilog work "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

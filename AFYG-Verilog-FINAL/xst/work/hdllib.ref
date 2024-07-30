@@ -1,0 +1,9 @@
+MO data_memory NULL data_memory.v vlg4A/data__memory.bin 1719532969
+MO tb_mips16 NULL tb_mips16.v vlg05/tb__mips16.bin 1719532926
+MO register_file NULL register_file.v vlg7C/register__file.bin 1719532969
+MO mips_16 NULL mips_16.v vlg1B/mips__16.bin 1719532969
+MO control NULL control.v vlg61/control.bin 1719532969
+MO instr_mem NULL instr_mem.v vlg6E/instr__mem.bin 1719532969
+MO ALUControl NULL ALUControl.v vlg23/_a_l_u_control.bin 1719532969
+MO alu NULL alu.v vlg0A/alu.bin 1719532969
+MO JR_Control NULL ALUControl.v vlg38/_j_r___control.bin 1719532969

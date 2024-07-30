@@ -1,0 +1,28 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/ise/ise_projects/AFYG/tb_mips16_isim_beh.exe" -prj "/home/ise/ise_projects/AFYG/tb_mips16_beh.prj" "work.tb_mips16" "work.glbl" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/ise/ise_projects/AFYG/mips_16.v" into library work
+Analyzing Verilog file "/home/ise/ise_projects/AFYG/tb_mips16.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 95300 KB
+Fuse CPU Usage: 450 ms
+Compiling module instr_mem
+Compiling module control
+Compiling module register_file
+Compiling module JR_Control
+Compiling module ALUControl
+Compiling module alu
+Compiling module data_memory
+Compiling module mips_16
+Compiling module tb_mips16
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 10 Verilog Units
+Built simulation executable /home/ise/ise_projects/AFYG/tb_mips16_isim_beh.exe
+Fuse Memory Usage: 98344 KB
+Fuse CPU Usage: 490 ms
+GCC CPU Usage: 110 ms

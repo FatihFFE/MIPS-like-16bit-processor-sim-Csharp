@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "/home/ise/AFYG/mips_16.xst" -ofn "/home/ise/AFYG/mips_16.syr" 
+xst -intstyle ise -ifn "/home/ise/AFYG/mips_16.xst" -ofn "/home/ise/AFYG/mips_16.syr" 
+xst -intstyle ise -ifn "/home/ise/ise_projects/AFYG/mips_16.xst" -ofn "/home/ise/ise_projects/AFYG/mips_16.syr" 
+xst -intstyle ise -ifn "/home/ise/ise_projects/AFYG/mips_16.xst" -ofn "/home/ise/ise_projects/AFYG/mips_16.syr" 
+xst -intstyle ise -ifn "/home/ise/ise_projects/AFYG/mips_16.xst" -ofn "/home/ise/ise_projects/AFYG/mips_16.syr" 
